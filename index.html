@@ -11,128 +11,84 @@
 body{
     margin:0;
     font-family:'Inter',sans-serif;
-    background:#050505;
+    background:#020202;
     color:white;
-    height:100vh;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
+    height:100vh;
     text-align:center;
     overflow:hidden;
 }
 
-/* glowing gradient background */
-.bg{
+/* premium soft glow background */
+.glow{
     position:absolute;
-    width:800px;
-    height:800px;
-    background:radial-gradient(circle,#ff4d4d40,#00000000);
+    width:900px;
+    height:900px;
+    background:radial-gradient(circle at center,#ff2a2a22,#00000000 60%);
     filter:blur(120px);
-    animation:move 10s infinite alternate;
+    animation:float 8s infinite alternate ease-in-out;
 }
 
-@keyframes move{
-    from{transform:translate(-200px,-100px);}
-    to{transform:translate(200px,150px);}
+@keyframes float{
+    from{transform:translate(-150px,-100px);}
+    to{transform:translate(150px,120px);}
 }
 
 .container{
     position:relative;
     z-index:2;
-    max-width:800px;
 }
 
 h1{
-    font-size:4rem;
-    margin-bottom:10px;
+    font-size:5rem;
+    font-weight:800;
+    letter-spacing:-1px;
+    margin-bottom:15px;
 }
 
-.typing{
-    font-size:1.4rem;
-    color:#bbb;
-    height:40px;
+.subtitle{
+    color:#888;
+    font-size:1.3rem;
+    margin-bottom:40px;
 }
 
-.buttons a{
-    margin:10px;
-    display:inline-block;
-    padding:14px 28px;
-    border-radius:40px;
+a{
     text-decoration:none;
-    font-weight:600;
-}
-
-.mail{
-    background:linear-gradient(90deg,#ff416c,#ff4b2b);
     color:white;
+    border:1px solid #333;
+    padding:18px 42px;
+    border-radius:50px;
+    font-size:1.1rem;
+    transition:.25s;
 }
 
-.social{
-    border:1px solid #333;
-    color:#ccc;
+a:hover{
+    border-color:#ff3c3c;
+    box-shadow:0 0 30px #ff3c3c55;
 }
 
 .footer{
-    margin-top:50px;
-    font-size:14px;
-    color:#666;
+    margin-top:60px;
+    font-size:13px;
+    color:#555;
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg"></div>
+<div class="glow"></div>
 
 <div class="container">
-<h1>Abhishek Singh</h1>
+    <h1>Abhishek Singh</h1>
+    <div class="subtitle">Reach me directly.</div>
 
-<div class="typing" id="typing"></div>
+    <a href="mailto:hello@abhishek.top">hello@abhishek.top</a>
 
-<div class="buttons">
-<a class="mail" href="mailto:hello@abhishek.top">Contact</a>
-<a class="social" href="#">YouTube</a>
-<a class="social" href="#">Instagram</a>
-<a class="social" href="#">LinkedIn</a>
+    <div class="footer">Personal domain</div>
 </div>
-
-<div class="footer">Minimal page. Maximum intent.</div>
-</div>
-
-<script>
-const texts = [
-"Building things slowly but seriously.",
-"Exploring internet business opportunities.",
-"Open to smart collaborations.",
-"Sometimes working, sometimes overthinking."
-];
-
-let i=0;
-let j=0;
-let current="";
-let isDeleting=false;
-const typingElement=document.getElementById("typing");
-
-function type(){
-    current=texts[i];
-    if(isDeleting){
-        typingElement.textContent=current.substring(0,j--);
-        if(j<0){
-            isDeleting=false;
-            i=(i+1)%texts.length;
-        }
-    }else{
-        typingElement.textContent=current.substring(0,j++);
-        if(j>current.length){
-            isDeleting=true;
-            setTimeout(type,1200);
-            return;
-        }
-    }
-    setTimeout(type,isDeleting?40:70);
-}
-type();
-</script>
 
 </body>
 </html>
