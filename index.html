@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Abhishek Singh</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
 
 <style>
 body{
@@ -31,16 +31,37 @@ body{
 .container{
     position:relative;
     z-index:2;
+    max-width:800px;
 }
 
 h1{
     font-size:5rem;
     font-weight:900;
     letter-spacing:-2px;
+    margin-bottom:10px;
+}
+
+.tagline{
+    font-size:1.3rem;
+    color:#bbb;
+    margin-bottom:20px;
+}
+
+.desc{
+    font-size:1rem;
+    color:#888;
+    line-height:1.6;
+    margin-bottom:35px;
+}
+
+.divider{
+    width:80px;
+    height:1px;
+    background:#333;
+    margin:30px auto;
 }
 
 .email{
-    margin-top:35px;
     display:inline-block;
     padding:18px 46px;
     border-radius:50px;
@@ -55,6 +76,12 @@ h1{
     border-color:white;
     box-shadow:0 0 40px rgba(255,255,255,0.15);
 }
+
+.footer{
+    margin-top:40px;
+    font-size:13px;
+    color:#666;
+}
 </style>
 </head>
 
@@ -64,7 +91,19 @@ h1{
 
 <div class="container">
     <h1>Abhishek Singh</h1>
+
+    <div class="tagline">Building ideas on the internet.</div>
+
+    <div class="desc">
+        Exploring digital business, media, and technology opportunities.  
+        Open to collaborations, serious discussions, and meaningful projects.
+    </div>
+
+    <div class="divider"></div>
+
     <a class="email" href="mailto:hello@abhishek.top">hello@abhishek.top</a>
+
+    <div class="footer">Personal domain</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -72,12 +111,12 @@ h1{
 <script>
 particlesJS("particles-js", {
   "particles": {
-    "number": {"value": 80},
+    "number": {"value": 90},
     "color": {"value": "#ffffff"},
     "shape": {"type": "circle"},
-    "opacity": {"value": 0.3},
-    "size": {"value": 2},
-    "move": {"enable": true, "speed": 1}
+    "opacity": {"value": 0.25},
+    "size": {"value": 2.5},
+    "move": {"enable": true, "speed": 1.2}
   }
 });
 </script>
