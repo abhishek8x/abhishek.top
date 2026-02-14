@@ -11,90 +11,128 @@
 body{
     margin:0;
     font-family:'Inter',sans-serif;
-    background:#0b0b0b;
+    background:#050505;
     color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
     height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     text-align:center;
+    overflow:hidden;
+}
+
+/* glowing gradient background */
+.bg{
+    position:absolute;
+    width:800px;
+    height:800px;
+    background:radial-gradient(circle,#ff4d4d40,#00000000);
+    filter:blur(120px);
+    animation:move 10s infinite alternate;
+}
+
+@keyframes move{
+    from{transform:translate(-200px,-100px);}
+    to{transform:translate(200px,150px);}
 }
 
 .container{
+    position:relative;
+    z-index:2;
     max-width:800px;
-}
-
-.badge{
-    border:1px solid #333;
-    padding:6px 14px;
-    border-radius:20px;
-    font-size:14px;
-    color:#aaa;
-    display:inline-block;
-    margin-bottom:20px;
 }
 
 h1{
     font-size:4rem;
-    margin:10px 0;
-    font-weight:800;
+    margin-bottom:10px;
 }
 
-.tagline{
-    font-size:1.3rem;
+.typing{
+    font-size:1.4rem;
     color:#bbb;
-    margin-bottom:35px;
-    line-height:1.6;
+    height:40px;
 }
 
-.btn{
+.buttons a{
+    margin:10px;
     display:inline-block;
-    padding:16px 34px;
+    padding:14px 28px;
     border-radius:40px;
-    background:linear-gradient(90deg,#ff416c,#ff4b2b);
-    color:white;
     text-decoration:none;
     font-weight:600;
-    font-size:18px;
-    transition:.3s;
 }
 
-.btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 10px 30px rgba(255,70,70,0.4);
+.mail{
+    background:linear-gradient(90deg,#ff416c,#ff4b2b);
+    color:white;
+}
+
+.social{
+    border:1px solid #333;
+    color:#ccc;
 }
 
 .footer{
-    margin-top:60px;
-    color:#777;
+    margin-top:50px;
     font-size:14px;
+    color:#666;
 }
 </style>
 </head>
 
 <body>
 
+<div class="bg"></div>
+
 <div class="container">
-
-<div class="badge">Personal Domain — Human Behind It</div>
-
 <h1>Abhishek Singh</h1>
 
-<div class="tagline">
-Not an influencer. Not a guru.  
-Just someone quietly building things that may accidentally become big.
-<br><br>
-If you have ideas, collaborations, or money to throw at interesting problems —  
-we should talk.
+<div class="typing" id="typing"></div>
+
+<div class="buttons">
+<a class="mail" href="mailto:hello@abhishek.top">Contact</a>
+<a class="social" href="#">YouTube</a>
+<a class="social" href="#">Instagram</a>
+<a class="social" href="#">LinkedIn</a>
 </div>
 
-<a class="btn" href="mailto:hello@abhishek.top">hello@abhishek.top</a>
-
-<div class="footer">
-This page loads faster than most startup MVPs.
+<div class="footer">Minimal page. Maximum intent.</div>
 </div>
 
-</div>
+<script>
+const texts = [
+"Building things slowly but seriously.",
+"Exploring internet business opportunities.",
+"Open to smart collaborations.",
+"Sometimes working, sometimes overthinking."
+];
+
+let i=0;
+let j=0;
+let current="";
+let isDeleting=false;
+const typingElement=document.getElementById("typing");
+
+function type(){
+    current=texts[i];
+    if(isDeleting){
+        typingElement.textContent=current.substring(0,j--);
+        if(j<0){
+            isDeleting=false;
+            i=(i+1)%texts.length;
+        }
+    }else{
+        typingElement.textContent=current.substring(0,j++);
+        if(j>current.length){
+            isDeleting=true;
+            setTimeout(type,1200);
+            return;
+        }
+    }
+    setTimeout(type,isDeleting?40:70);
+}
+type();
+</script>
 
 </body>
 </html>
