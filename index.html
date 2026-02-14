@@ -5,89 +5,78 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Abhishek Singh</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
 body{
-    margin:0;
     font-family:'Inter',sans-serif;
-    background:#020202;
-    color:white;
+    height:100vh;
     display:flex;
     align-items:center;
     justify-content:center;
-    height:100vh;
+    background:linear-gradient(-45deg,#0f0f0f,#1b1b1b,#121212,#000);
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
+    color:white;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.card{
+    padding:70px 90px;
+    border-radius:28px;
+    background:rgba(255,255,255,0.04);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.08);
     text-align:center;
-    overflow:hidden;
-}
-
-/* premium soft glow background */
-.glow{
-    position:absolute;
-    width:900px;
-    height:900px;
-    background:radial-gradient(circle at center,#ff2a2a22,#00000000 60%);
-    filter:blur(120px);
-    animation:float 8s infinite alternate ease-in-out;
-}
-
-@keyframes float{
-    from{transform:translate(-150px,-100px);}
-    to{transform:translate(150px,120px);}
-}
-
-.container{
-    position:relative;
-    z-index:2;
+    box-shadow:0 30px 80px rgba(0,0,0,0.6);
 }
 
 h1{
-    font-size:5rem;
-    font-weight:800;
+    font-size:4.5rem;
+    font-weight:900;
+    margin-bottom:20px;
     letter-spacing:-1px;
-    margin-bottom:15px;
 }
 
-.subtitle{
-    color:#888;
-    font-size:1.3rem;
-    margin-bottom:40px;
-}
-
-a{
+.email{
+    margin-top:25px;
+    display:inline-block;
+    padding:16px 40px;
+    border-radius:50px;
+    border:1px solid rgba(255,255,255,0.25);
     text-decoration:none;
     color:white;
-    border:1px solid #333;
-    padding:18px 42px;
-    border-radius:50px;
-    font-size:1.1rem;
-    transition:.25s;
+    font-size:1.2rem;
+    transition:0.3s;
 }
 
-a:hover{
-    border-color:#ff3c3c;
-    box-shadow:0 0 30px #ff3c3c55;
+.email:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 40px rgba(0,0,0,0.5);
+    border-color:white;
 }
 
-.footer{
-    margin-top:60px;
+.small{
+    margin-top:35px;
     font-size:13px;
-    color:#555;
+    color:#999;
 }
 </style>
 </head>
 
 <body>
 
-<div class="glow"></div>
-
-<div class="container">
+<div class="card">
     <h1>Abhishek Singh</h1>
-    <div class="subtitle">Reach me directly.</div>
-
-    <a href="mailto:hello@abhishek.top">hello@abhishek.top</a>
-
-    <div class="footer">Personal domain</div>
+    <a class="email" href="mailto:hello@abhishek.top">hello@abhishek.top</a>
+    <div class="small">Direct contact only</div>
 </div>
 
 </body>
