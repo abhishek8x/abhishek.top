@@ -45,21 +45,24 @@ h1{
     color:#aaa;
     margin-bottom:35px;
 }
-
 .email-btn{
     display:inline-block;
-    padding:18px 50px;
-    border-radius:50px;
-    border:1px solid rgba(255,255,255,0.35);
+    padding:18px 48px;
+    border-radius:999px;
     text-decoration:none;
     color:white;
     font-size:1.2rem;
+    font-weight:500;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.18);
+    backdrop-filter:blur(12px);
     transition:.25s;
 }
 
 .email-btn:hover{
-    border-color:white;
-    box-shadow:0 0 40px rgba(255,255,255,0.15);
+    background:rgba(255,255,255,0.12);
+    border-color:rgba(255,255,255,0.35);
+    box-shadow:0 10px 40px rgba(0,0,0,0.5);
     transform:translateY(-2px);
 }
 </style>
@@ -72,7 +75,10 @@ h1{
 <div class="container">
     <h1>Abhishek Singh</h1>
     <div class="line">Simple ideas. Serious execution.</div>
-    <a class="email-btn" href="mailto:hello@abhishek.top">Email: hello@abhishek.top</a>
+    <a class="email-btn" href="mailto:hello@abhishek.top">
+    hello@abhishek.top
+</a>
+    
 </div>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -92,3 +98,4 @@ particlesJS("particles-js", {
 
 </body>
 </html>
+
